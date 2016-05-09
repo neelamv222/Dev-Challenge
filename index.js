@@ -22,12 +22,6 @@ client.debug = function(msg) {
 
 function connectCallback() {
   document.getElementById('stomp-status').innerHTML = "It has now successfully connected to a stomp server serving price updates for some foreign exchange currency pairs."
-
-  client.subscribe('/fx/prices', function(message) {
-    const priceData = JSON.parse(message.body)
-    console.log(JSON.stringify(priceData, undefined, 2))
-  })
-
 }
 
 client.connect({}, connectCallback, function(error) {
