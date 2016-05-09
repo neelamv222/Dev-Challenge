@@ -13,13 +13,13 @@
     <h1>Updating Table</h1>
 
     <p>
-        This page is served from <code>db-updating-table/site/index.html</code>.  The server will
-        run if you go into the db-updating-table directory and run the development server with
+        This page is served from <code>dev-challenge/site/index.html</code>.  To get set up, go into the
+        dev-challenge directory and run <code>npm install</code>.  To start the server, run
         <code>npm start</code>
     </p>
 
     <p>
-        It includes javascript code bundled starting at <code>db-updating-table/index.js</code> and
+        It includes javascript code bundled starting at <code>challenge/index.js</code> and
         also a javascript library called <a href="http://jmesnil.net/stomp-websocket/doc/">stomp.js</a>
         for connecting to a streaming pub/sub system over websockets.  Within a short time from loading
         the page, it will connect over websockets to a stomp server that also runs when you run the
@@ -27,7 +27,7 @@
     </p>
 
     <section id="stomp-status">
-        It hasn't yet connected to the stomp server.  If this state persists for a significant period of time, check
+        It hasn't yet connected to the stomp server.  If this state persists for a significant length of time, check
         <ul>
             <li>that you are running a browser that supports javascript and WebSockets</li>
             <li>that you have run the development server by going into the db-updating-table directory and
@@ -77,8 +77,7 @@
     <p>
         Although adding dependencies you haven't written yourself to the page that features the updating table
         is not allowed, dependencies that you only use during build or development e.g. for testing, etc are
-        allowed.  Try to avoid making changes to the dependencies already packaged in node_modules, but if you do,
-        include an explanation of what you changed and why.
+        allowed.
     </p>
 
     <h2>Notes</h2>

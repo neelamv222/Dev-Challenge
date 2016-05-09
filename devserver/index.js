@@ -42,21 +42,20 @@ if (devServerConfig.inline) {
 }
 const compiler = webpack(config)
 
-const server = http.createServer()
-config.devServer.server = server
 const webpackServer = new webpackDevServer(compiler, config.devServer)
 webpackServer.listen(devServerConfig.port, devServerConfig.host, function(err) {
   if(err) { throw err }
-
-  var addr = server.address();
+  const server = webpackServer.listeningApp
+  const addr = server.address()
   util.log(util.format("Webpack dev server started on http://%s:%s/", addr.address, addr.port));
 
   report(devServerConfig)
+
+  const mq = new Mq({
+    protocol: 'websocket'
+  }, server)
+  mq.timerID = setInterval(function() { mq.timer(); }, mq.interval);
+
+  serverPublisher.start('ws://localhost:8011/stomp')
 })
 
-const mq = new Mq({
-  protocol: 'websocket'
-}, server)
-mq.timerID = setInterval(function() { mq.timer(); }, mq.interval);
-
-serverPublisher.start('ws://localhost:8011/stomp')
