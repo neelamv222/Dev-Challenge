@@ -13,6 +13,27 @@ h2 {
     font-size: 20px;
 }
 
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table, td, th {
+    border: 1px solid black;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+    background-color: #808000;
+    color: white;
+}
+
 .content {
     width: 700px;
     margin: auto;
